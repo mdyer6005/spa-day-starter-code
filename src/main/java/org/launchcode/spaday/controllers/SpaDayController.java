@@ -1,5 +1,10 @@
 package org.launchcode.spaday.controllers;
 
+<<<<<<< HEAD
+=======
+import org.launchcode.spaday.models.Client;
+import org.springframework.beans.factory.annotation.Autowired;
+>>>>>>> dd741c676aa868fd66e69d906bfd1d2cce3622d4
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +14,7 @@ import java.util.ArrayList;
 @Controller
 public class SpaDayController {
 
+<<<<<<< HEAD
     public boolean checkSkinType(String skinType, String facialType) {
         if (skinType.equals("oily")) {
             return facialType.equals("Microdermabrasion") || facialType.equals("Rejuvenating");
@@ -68,6 +74,19 @@ public class SpaDayController {
         model.addAttribute("manipedi", manipedi);
         model.addAttribute("appropriateFacials", appropriateFacials);
 
+=======
+    @GetMapping
+    public String displayClientForm (Model model) {
+        return "serviceSelection";
+    }
+
+    @PostMapping
+    public String processClientForm(@RequestParam String skintype, @RequestParam String manipedi, Model model) {
+        Client newClient = new Client(skintype, manipedi);
+        newClient.setAppropriateFacials(skintype);
+        model.addAttribute("client" , newClient);
+
+>>>>>>> dd741c676aa868fd66e69d906bfd1d2cce3622d4
         return "menu";
     }
 }
