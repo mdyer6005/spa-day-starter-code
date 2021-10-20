@@ -8,6 +8,9 @@ public class Client {
     private String nailService;
     private ArrayList<String> appropriateFacials = new ArrayList<>();
 
+    public Client() {
+    }
+
     public Client(String skinType, String nailService) {
         this.skinType = skinType;
         this.nailService = nailService;
