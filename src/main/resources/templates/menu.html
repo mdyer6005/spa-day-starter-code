@@ -8,14 +8,6 @@
 <body>
 <h1>My Super Fancy Spa</h1>
 <div id = "clientProfile">
-<<<<<<< HEAD
-    <h2>My profile</h2>
-    <p th:text="${client.skinType}"></p>
-    <p th:text="${client.nailService}"></p>
-</div>
-<div id = "servicesMenu">
-    <div th:if="${client.nailService.equals('manicure')}">
-=======
     <h2>My Profile</h2>
     <p th:text = "${client.skinType}"></p>
     <p th:text = "${client.nailService}"></p>
@@ -34,26 +26,13 @@
         </table>
     </div>
     <div th:if = "${client.nailService == 'manicure'}">
->>>>>>> dd741c676aa868fd66e69d906bfd1d2cce3622d4
         <h3>Manicure</h3>
-        <p th:replace="fragments :: manicureDescription"></p>
+        <p th:replace =  "fragments :: manicureDescription"></p>
     </div>
-<<<<<<< HEAD
-    <div th:unless="${client.nailService.equals('manicure')}">
-=======
     <div th:if = "${client.nailService == 'pedicure'}">
->>>>>>> dd741c676aa868fd66e69d906bfd1d2cce3622d4
         <h3>Pedicure</h3>
-        <p th:replace="fragments :: pedicureDescription"></p>
+        <p th:replace = "fragments :: pedicureDescription"></p>
     </div>
-
-    <table>
-        <th:block th:each="facial : ${client.appropriateFacials}">
-            <tr>
-                <td th:text="${facial}"></td>
-            </tr>
-        </th:block>
-    </table>
 </div>
 </body>
 </html>

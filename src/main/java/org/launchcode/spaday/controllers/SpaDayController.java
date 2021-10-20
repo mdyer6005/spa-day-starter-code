@@ -20,6 +20,7 @@ public class SpaDayController {
     //public String spaMenu(@RequestParam String skintype, @RequestParam String manipedi, Model model) {
     public String spaMenu(@RequestParam String skinType, @RequestParam String maniPedi, Model model) {
         Client newClient = new Client(skinType, maniPedi);
+        newClient.setAppropriateFacials(skinType);
         model.addAttribute("client",newClient);
         return "menu";
     }
