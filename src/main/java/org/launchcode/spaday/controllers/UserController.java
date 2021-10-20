@@ -22,21 +22,20 @@ public class UserController {
     @PostMapping
     public String processAddUserForm(Model model, @Valid @ModelAttribute User user, Errors errors, String verify) {
         if (errors.hasErrors()) {
-          model.addAttribute("errors", errors);
+            model.addAttribute("errors", errors);
+            if (!user.getPassword().equals(verify) || verify.equals("") || verify.isBlank()) {
+                model.addAttribute("verifyError", "Passwords do not match");
+            }
           return "user/add";
         }
 
 
         model.addAttribute("verify", verify);
-        if (user.getPassword().equals(verify)) {
+        if (user.getPassword().equals(verify) && !verify.equals("") && !verify.isBlank()) {
            return "user/index";
-        }
-        else {
+        } else {
             model.addAttribute("verifyError", "Passwords do not match");
             return "user/add";
         }
-
     }
-
-
 }
